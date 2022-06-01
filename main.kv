@@ -1,0 +1,149 @@
+<Windows>:
+    main_label: data_label
+    progress: progress
+	orientation: 'vertical'
+	ActionBar:
+        pos_hint: {'top':1}
+        padding: 0
+        background_image: ''
+        background_color: (0.06, 0.35, 0.44, 1)
+
+        ActionView:
+            use_separator: True
+            ActionPrevious:
+                title: 'Parser WoTC'
+                with_previous: False
+            ActionOverflow:
+            ActionButton:
+                important: True
+                text: 'О программе'
+                on_release:
+                    root.smallWin()
+	BoxLayout:
+        orientation: 'vertical'
+        padding: 5
+        spacing: 5
+        canvas.before:
+            Color:
+                rgba: 0.06, 0.44, 0.43, 1
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        BoxLayout:
+            TextInput:
+                id: data_label
+                size_hint: 1, 1
+                multiline: True
+                font_name: 'segoeui'
+                font_size: 14
+                cursor_blink: 0
+                cursor_color: 0, 0, 0, 0
+                auto_indent: 1
+
+            BoxLayout:
+                orientation: 'vertical'
+                size_hint: .3, 1
+                padding: 5
+                spacing: 10
+                canvas.before:
+                    Color:
+                        rgba: 0.06, 0.44, 0.43, 1
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos
+                Label:
+                    text: '[b]Панель управления[/b]'
+                    markup: 1
+                    size_hint: 1, None
+                    text_size: self.size
+                    size: 0, 20
+                    font_size: 18
+                    halign: 'center'
+                Button:
+                    id: updatebutton
+                    text: 'START'
+                    size_hint: 1, None
+                    text_size: self.size
+                    size: 0, 30
+                    font_size: 18
+                    halign: 'center'
+                    valign: 'middle'
+                    background_normal: ''
+                    background_color: (0.06, 0.44, 0.15, 1)
+                    canvas.before:
+                        Color:
+                            rgba: 0, 0, 0, 1
+                        Line:
+                            width: 1
+                            rectangle: self.x, self.y, self.width, self.height
+                    on_release:
+                        root.upd_data()
+                Image:
+                    size_hint: 1, 1
+                    size: 70, 70
+                    source: 'logo.png'
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: 1, None
+            size: 0, 45
+            Label:
+                text: '[i]Индикатор загрузки данных[/i]'
+                markup: 1
+                size_hint: 1, None
+                text_size: self.size
+                size: 0, 18
+                font_size: 14
+                halign: 'left'
+            ProgressBar:
+                id: progress
+                size_hint: 1, None
+                size: 0, 25
+                id: progress
+                value: 0
+                max: 100
+<ModalView>:
+    BoxLayout:
+        padding: 5
+        spacing: 5
+        orientation: 'vertical'
+        canvas.before:
+            Color:
+                rgba: 0.06, 0.44, 0.43, 1
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        Label:
+            size_hint: 1, None
+			size: 45, 30
+            text: '[b]Python&Kivy[/b]'
+            markup: 1
+            font_size: 20
+        Label:
+            size_hint: 1, None
+			size: 45, 30
+            text: 'github.com/telnex'
+            font_size: 15
+            valign: 'top'
+
+        Button:
+			text: 'close'
+			size_hint: 1, None
+			size: 45, 20
+			font_size: 15
+			background_normal: ''
+			background_color: (0.06, 0.35, 0.44, 1)
+			canvas.before:
+                Color:
+                    rgba: 0, 0, 0, 1
+                Line:
+                    width: 1
+                    rectangle: self.x, self.y, self.width, self.height
+            on_release:
+                root.dismiss()
+
+
+
+
+
+
+
